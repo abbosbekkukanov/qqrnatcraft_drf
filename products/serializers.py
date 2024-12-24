@@ -73,4 +73,4 @@ class ViewedProductSerializer(serializers.ModelSerializer):
 class BannerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Banner
-        fields = ['id', 'name', 'description', 'link', 'img']
+        fields = ['id', 'name', 'description', 'link', 'image']
