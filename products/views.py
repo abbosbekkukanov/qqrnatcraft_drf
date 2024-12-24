@@ -1,8 +1,8 @@
 from rest_framework import viewsets, permissions, generics
 from rest_framework.response import Response
 from rest_framework.decorators import action
-from .models import Product, Category, Favorite, CartItem, Comment, ViewedProduct
-from .serializers import ProductSerializer, CategorySerializer,  CommentSerializer, ViewedProductSerializer, FavoriteSerializer, CartItemSerializer
+from .models import Product, Category, Favorite, CartItem, Comment, ViewedProduct, Banner
+from .serializers import ProductSerializer, CategorySerializer,  CommentSerializer, ViewedProductSerializer, FavoriteSerializer, CartItemSerializer, BannerSerializer
 from rest_framework import status
 
 class CategoryViewSet(viewsets.ModelViewSet):
@@ -93,3 +93,10 @@ class LastViewedProductsView(generics.ListAPIView):
     def get_queryset(self):
         """Foydalanuvchining oxirgi ko‘rgan mahsulotlari"""
         return ViewedProduct.objects.filter(user=self.request.user).select_related('product')
+
+
+# 23.12.2024
+
+class BannerViewSet(viewsets.ModelViewSet):
+    queryset = Banner.objects.all()
+    serializer_class = BannerSerializer

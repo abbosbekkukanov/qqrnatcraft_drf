@@ -3,6 +3,19 @@ from django.contrib.auth.models import User
 from django.conf import settings
 from django.utils import timezone
 # Create your models here.
+class Banner(models.Model):
+    name = models.CharField(max_length=200, verbose_name="Banner nomi")
+    description = models.TextField(verbose_name="Banner haqida ma'lumot", default="Bu yerda sizning reklamangiz bo'lishi mumkin edi")
+    link = models.CharField(max_length=200, default="/", verbose_name="Banner linki")
+    image = models.ImageField(upload_to='banners_images/', null=True, blank=True)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = "Banner"
+        verbose_name_plural = "Bannerlar"
+
 class Category(models.Model):
     name = models.CharField(max_length=50, unique=True)
     description = models.TextField(default='No description provided')
