@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Category, Product, ProductImage, Favorite, CartItem, Comment, Banner
+from .models import Category, Product, ProductImage, Favorite, CartItem, Comment
 
 # ProductImage modelini Product ichida inline sifatida ko'rsatish uchun
 class ProductImageInline(admin.TabularInline):
@@ -36,8 +36,3 @@ class CartItemAdmin(admin.ModelAdmin):
 class CommentAdmin(admin.ModelAdmin):
     list_display = ('user', 'product', 'created_at', 'content')
     search_fields = ('user__username', 'product__name', 'content')
-
-@admin.register(Banner)
-class BannerAdmin(admin.ModelAdmin):
-    list_display = ('name', 'description', 'link', 'image')
-    search_fields = ('name', 'description')
