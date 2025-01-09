@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Product, Category, ProductImage, CartItem, Favorite, Comment, ViewedProduct, Banner
+from .models import Product, Category, ProductImage, CartItem, Favorite, Comment, ViewedProduct
 
 
 class CategorySerializer(serializers.ModelSerializer):
@@ -67,10 +67,3 @@ class ViewedProductSerializer(serializers.ModelSerializer):
         model = ViewedProduct
         fields = ['id', 'user', 'product', 'viewed_at']
         read_only_fields = ['user', 'viewed_at']
-
-# 23.12.2024
-
-class BannerSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Banner
-        fields = ['id', 'name', 'description', 'link', 'image']
