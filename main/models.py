@@ -5,7 +5,7 @@ from django.utils import timezone
 class AbstractCard(models.Model):
     name = models.CharField(max_length=450)
     text = models.TextField()
-    img = models.ImageField(upload_to='images/')
+    img = models.ImageField(upload_to='images/', null=True, blank=True)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
@@ -18,16 +18,16 @@ class AbstractCard(models.Model):
 
 
 class Banner(AbstractCard):
-    img = models.ImageField(upload_to='banner/')
+    img = models.ImageField(upload_to='banner/', null=True, blank=True)
 
 class OurTeam(AbstractCard):
-    img = models.ImageField(upload_to='ourteam/')
+    img = models.ImageField(upload_to='ourteam/', null=True, blank=True)
     profession = models.CharField(max_length=200)
 
 class CommonCraftCard(models.Model):
     title = models.CharField(max_length=255)
     text = models.TextField()
-    img = models.ImageField(upload_to='craftsmanship/')
+    img = models.ImageField(upload_to='craftsmanship/', null=True, blank=True)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
